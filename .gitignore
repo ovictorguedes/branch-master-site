@@ -1,0 +1,11 @@
+# SO / editores
+.DS_Store
+Thumbs.db
+desktop.ini
+*.swp
+.idea/
+.vscode/
+
+# Node (caso venha a usar build tools)
+node_modules/
+npm-debug.log*
