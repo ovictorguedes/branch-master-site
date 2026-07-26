@@ -4,8 +4,8 @@ Site institucional da Branch Master (landing page de página única).
 
 ## Estrutura
 
-- **`index.html`** — versão final e autossuficiente do site (logo em SVG inline, sem dependências externas). É a página servida em produção.
-- **`dist/branch-master-site.html`** — build original que deu origem ao `index.html`.
+- **`index.html`** — site final **pré-renderizado como HTML estático** (sem bundler client-side): título/meta/`lang` corretos, fontes embutidas, âncoras funcionando, logo em SVG inline. É a página servida em produção.
+- **`dist/branch-master-site.html`** — build original gerado por bundler (renderizava via JavaScript). Mantido como referência; o `index.html` foi otimizado a partir dele.
 - **`Home.dc.html`** — página-fonte (herói, seções de serviços, sobre, contato).
 - **`Footer.dc.html`**, **`WhatsAppButton.dc.html`** — componentes de origem usados na página.
 - **`support.js`, `image-slot.js`** — scripts de apoio usados pelos arquivos de origem.
