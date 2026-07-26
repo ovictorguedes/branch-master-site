@@ -1,29 +1,36 @@
 # Branch Master — Website
 
-Site institucional da Branch Master (landing page de página única).
+Site institucional da Branch Master. Site **multipágina** estático.
 
-## Estrutura
+## Páginas (o que é publicado)
 
-- **`index.html`** — site final **pré-renderizado como HTML estático** (sem bundler client-side): título/meta/`lang` corretos, fontes embutidas, âncoras funcionando, logo em SVG inline. É a página servida em produção.
-- **`dist/branch-master-site.html`** — build original gerado por bundler (renderizava via JavaScript). Mantido como referência; o `index.html` foi otimizado a partir dele.
-- **`Home.dc.html`** — página-fonte (herói, seções de serviços, sobre, contato).
-- **`Footer.dc.html`**, **`WhatsAppButton.dc.html`** — componentes de origem usados na página.
-- **`support.js`, `image-slot.js`** — scripts de apoio usados pelos arquivos de origem.
-- **`uploads/`** — logo e ícone da marca (`branchmaster.svg`, `ICON_POSITIVO_1.png`).
-- **`favicon.ico`** — ícone da aba.
+- **`index.html`** — Home
+- **`servicos.html`** — Serviços (Automação, Integração, Dashboards, com "A dor / O que fazemos / O resultado")
+- **`sobre.html`** — Sobre (missão, processo, diferenciais, foto da equipe)
+- **`contato.html`** — Contato (formulário + mapa)
 
-> As seções **Serviços**, **Sobre** e **Contato** são âncoras dentro da própria `index.html` (site de página única), não arquivos separados.
+Todas compartilham o mesmo cabeçalho (logo + menu Home/Serviços/Sobre/Contato + botão WhatsApp) e rodapé. As páginas são HTML estático puro (sem bundler client-side), com fontes via Google Fonts. `title`, `meta description`, `lang="pt-BR"` e Open Graph definidos por página.
 
-## Ver o site localmente
+O **formulário de Contato** não tem backend: ao enviar, ele abre o WhatsApp com os dados preenchidos. Para receber os leads por e-mail, dá para plugar um serviço como Formspree depois.
 
-Abra o `index.html` direto no navegador, ou rode um servidor local:
+## Fonte / edição
+
+- **`Home.dc.html`** — arquivo-fonte que contém **as 4 páginas empilhadas**, cada uma dentro de um bloco `<sc-if value="{{ isHome|isServicos|isSobre|isContato }}">`. É renderizado pelo `support.js` (roteamento client-side). As páginas `.html` acima foram geradas a partir dele.
+- **`Footer.dc.html`, `WhatsAppButton.dc.html`** — componentes de origem.
+- **`support.js`, `image-slot.js`** — runtime dos arquivos `.dc.html`.
+- **`dist/branch-master-site.html`** — build antigo (só a Home). Mantido como referência.
+- **`uploads/`** — logo e ícone da marca. **`favicon.ico`** — ícone da aba.
+
+> Não há bundler local para regerar os `.html` a partir do `.dc.html`. Para editar o site publicado, edite os arquivos `.html` diretamente (ou renderize `Home.dc.html` no navegador, ajustando os `<sc-if>` para exibir a página desejada).
+
+## Ver localmente
 
 ```bash
 python -m http.server 8000
 ```
 
-Depois acesse http://localhost:8000
+Acesse http://localhost:8000
 
 ## Publicação (GitHub Pages)
 
-Como o `index.html` está na raiz, basta ativar o GitHub Pages em **Settings → Pages**, selecionando a branch `main` e a pasta `/ (root)`.
+Já publicado em **https://ovictorguedes.github.io/branch-master-site/** (branch `main`, raiz).
