@@ -22,7 +22,7 @@
       "#site-header.menu-open .hdr-nav{display:flex!important;flex:0 0 100%;order:5;flex-direction:column;" +
         "align-items:stretch;gap:0;margin-top:8px;padding-top:8px;border-top:1px solid rgba(255,255,255,.14);}" +
       "#site-header.menu-open .hdr-nav a{font-size:16px!important;padding:13px 6px;}" +
-      "#site-header.menu-open .hdr-cta{display:block!important;flex:0 0 100%;order:6;text-align:center;margin-top:8px;}" +
+      "#site-header.menu-open .hdr-cta{display:block!important;box-sizing:border-box;width:100%;flex:0 0 100%;order:6;text-align:center;margin-top:8px;}" +
     "}";
   var style = document.createElement('style');
   style.textContent = css;
