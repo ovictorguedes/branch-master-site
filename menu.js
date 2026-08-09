@@ -7,12 +7,12 @@
   var css =
     ".hdr-burger{display:none;align-items:center;justify-content:center;flex-direction:column;gap:5px;" +
       "width:44px;height:44px;padding:10px;background:none;border:0;cursor:pointer;flex-shrink:0;border-radius:8px;}" +
-    ".hdr-burger span{display:block;width:22px;height:2px;background:#f7f1e8;border-radius:2px;" +
+    ".hdr-burger span{display:block;width:22px;height:2px;background:#F5F3EE;border-radius:2px;" +
       "transition:transform .25s ease,opacity .2s ease;}" +
     ".hdr-burger[aria-expanded='true'] span:nth-child(1){transform:translateY(7px) rotate(45deg);}" +
     ".hdr-burger[aria-expanded='true'] span:nth-child(2){opacity:0;}" +
     ".hdr-burger[aria-expanded='true'] span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}" +
-    ".hdr-burger:focus-visible{outline:2px solid #e77318;outline-offset:2px;}" +
+    ".hdr-burger:focus-visible{outline:2px solid #FF8A3D;outline-offset:2px;}" +
     "@media(max-width:760px){" +
       "#site-header{flex-wrap:wrap;align-items:center;}" +
       "#site-header .hdr-logo{margin-right:auto;}" +
